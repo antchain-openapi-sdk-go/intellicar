@@ -9,9 +9,9 @@ import (
 	"io"
 )
 
-/**
- * Model for initing client
- */
+// Description:
+//
+// Model for initing client
 type Config struct {
 	// accesskey id
 	AccessKeyId *string `json:"accessKeyId,omitempty" xml:"accessKeyId,omitempty"`
@@ -20,26 +20,66 @@ type Config struct {
 	// security token
 	SecurityToken *string `json:"securityToken,omitempty" xml:"securityToken,omitempty"`
 	// http protocol
+	//
+	// example:
+	//
+	// http
 	Protocol *string `json:"protocol,omitempty" xml:"protocol,omitempty"`
 	// read timeout
+	//
+	// example:
+	//
+	// 10
 	ReadTimeout *int `json:"readTimeout,omitempty" xml:"readTimeout,omitempty"`
 	// connect timeout
+	//
+	// example:
+	//
+	// 10
 	ConnectTimeout *int `json:"connectTimeout,omitempty" xml:"connectTimeout,omitempty"`
 	// http proxy
+	//
+	// example:
+	//
+	// http://localhost
 	HttpProxy *string `json:"httpProxy,omitempty" xml:"httpProxy,omitempty"`
 	// https proxy
+	//
+	// example:
+	//
+	// https://localhost
 	HttpsProxy *string `json:"httpsProxy,omitempty" xml:"httpsProxy,omitempty"`
 	// endpoint
+	//
+	// example:
+	//
+	// cs.aliyuncs.com
 	Endpoint *string `json:"endpoint,omitempty" xml:"endpoint,omitempty"`
 	// proxy white list
+	//
+	// example:
+	//
+	// http://localhost
 	NoProxy *string `json:"noProxy,omitempty" xml:"noProxy,omitempty"`
 	// max idle conns
+	//
+	// example:
+	//
+	// 3
 	MaxIdleConns *int `json:"maxIdleConns,omitempty" xml:"maxIdleConns,omitempty"`
 	// user agent
+	//
+	// example:
+	//
+	// Alibabacloud/1
 	UserAgent *string `json:"userAgent,omitempty" xml:"userAgent,omitempty"`
 	// socks5 proxy
 	Socks5Proxy *string `json:"socks5Proxy,omitempty" xml:"socks5Proxy,omitempty"`
 	// socks5 network
+	//
+	// example:
+	//
+	// TCP
 	Socks5NetWork *string `json:"socks5NetWork,omitempty" xml:"socks5NetWork,omitempty"`
 	// 长链接最大空闲时长
 	MaxIdleTimeMillis *int `json:"maxIdleTimeMillis,omitempty" xml:"maxIdleTimeMillis,omitempty"`
@@ -152,11 +192,20 @@ func (s *Config) SetMaxRequestsPerHost(v int) *Config {
 // 高德潜客uv指数
 type GdCustomerUv struct {
 	// uv指数数量
+	// example:
+	//
+	// 36
 	Total *int64 `json:"total,omitempty" xml:"total,omitempty" require:"true"`
 	// uv指数数量
+	// example:
+	//
+	// 10
 	Count *int64 `json:"count,omitempty" xml:"count,omitempty" require:"true"`
 	// uv指数排序
 	//
+	// example:
+	//
+	// 1
 	Sort *int64 `json:"sort,omitempty" xml:"sort,omitempty" require:"true"`
 }
 
@@ -186,10 +235,19 @@ func (s *GdCustomerUv) SetSort(v int64) *GdCustomerUv {
 // 高德潜客record重叠指数pv指数
 type GdCustomerPv struct {
 	// 重叠指数pv历史指数数量（时间类型为季度、半年、年时，不展示）
+	// example:
+	//
+	// 36
 	Total *int64 `json:"total,omitempty" xml:"total,omitempty" require:"true"`
 	// 重叠指数pv指数数量
+	// example:
+	//
+	// 10
 	Count *int64 `json:"count,omitempty" xml:"count,omitempty" require:"true"`
 	// 重叠指数pv指数排序
+	// example:
+	//
+	// 1
 	Sort *int64 `json:"sort,omitempty" xml:"sort,omitempty" require:"true"`
 }
 
@@ -223,14 +281,29 @@ type GdDest struct {
 	// 流出指数pv指数
 	Pv *GdCustomerPv `json:"pv,omitempty" xml:"pv,omitempty" require:"true"`
 	// 流出品牌id
+	// example:
+	//
+	// 103
 	BrandId *string `json:"brand_id,omitempty" xml:"brand_id,omitempty" require:"true"`
 	// 流出店铺id，数据类型为店铺时返回该属性与值
+	// example:
+	//
+	// 26nZz8dsa4
 	ShopId *string `json:"shop_id,omitempty" xml:"shop_id,omitempty"`
 	// 城市编码，数据类型为店铺或者城市时返回该属性与值
+	// example:
+	//
+	// 021
 	Citycode *string `json:"citycode,omitempty" xml:"citycode,omitempty"`
 	// 省份编码，数据类型为省份时返回该属性与值
+	// example:
+	//
+	// xxxx
 	Pcode *string `json:"pcode,omitempty" xml:"pcode,omitempty"`
 	// 数据类型为全国时返回该属性与值
+	// example:
+	//
+	// xxxx
 	Countrycode *string `json:"countrycode,omitempty" xml:"countrycode,omitempty"`
 }
 
@@ -284,14 +357,29 @@ type GdSrc struct {
 	// 流入指数pv指数
 	Pv *GdCustomerPv `json:"pv,omitempty" xml:"pv,omitempty" require:"true"`
 	// 流入品牌id
+	// example:
+	//
+	// 106
 	BrandId *string `json:"brand_id,omitempty" xml:"brand_id,omitempty" require:"true"`
 	// 流入店铺id，数据类型为店铺时返回该属性与值
+	// example:
+	//
+	// 26mMw8duxn
 	ShopId *string `json:"shop_id,omitempty" xml:"shop_id,omitempty"`
 	// 流入城市编码，数据类型为店铺或者城市时返回该属性与值
+	// example:
+	//
+	// 021
 	Citycode *string `json:"citycode,omitempty" xml:"citycode,omitempty"`
 	// 省份编码，数据类型为省份时返回该属性与值
+	// example:
+	//
+	// xxxx
 	Pcode *string `json:"pcode,omitempty" xml:"pcode,omitempty"`
 	// 数据类型为全国时返回该属性与值
+	// example:
+	//
+	// xxxx
 	Countrycode *string `json:"countrycode,omitempty" xml:"countrycode,omitempty"`
 }
 
@@ -345,14 +433,29 @@ type Overlap struct {
 	// 重叠指数pv指数
 	Pv *GdCustomerPv `json:"pv,omitempty" xml:"pv,omitempty" require:"true"`
 	// 重叠品牌id
+	// example:
+	//
+	// 104
 	BrandId *string `json:"brand_id,omitempty" xml:"brand_id,omitempty" require:"true"`
 	// 重叠店铺id，数据类型为店铺时返回该属性与值
+	// example:
+	//
+	// 26nhJ8duzh
 	ShopId *string `json:"shop_id,omitempty" xml:"shop_id,omitempty"`
 	// 重叠城市编码，数据类型为城市时返回该属性与值
+	// example:
+	//
+	// 021
 	Citycode *string `json:"citycode,omitempty" xml:"citycode,omitempty"`
 	// 重叠省份编码，数据类型为省份时返回该属性与值
+	// example:
+	//
+	// xxxx
 	Pcode *string `json:"pcode,omitempty" xml:"pcode,omitempty"`
 	// 数据类型为全国时返回该属性与值
+	// example:
+	//
+	// xxxx
 	Countrycode *string `json:"countrycode,omitempty" xml:"countrycode,omitempty"`
 }
 
@@ -402,8 +505,14 @@ func (s *Overlap) SetCountrycode(v string) *Overlap {
 // 品牌信息
 type LetterInfo struct {
 	// name
+	// example:
+	//
+	// xxxx
 	Name *string `json:"name,omitempty" xml:"name,omitempty" require:"true"`
 	// id
+	// example:
+	//
+	// xxxx
 	Id *string `json:"id,omitempty" xml:"id,omitempty" require:"true"`
 }
 
@@ -428,18 +537,39 @@ func (s *LetterInfo) SetId(v string) *LetterInfo {
 // 用户信息
 type CarUserInfo struct {
 	// 唯一标识用户的id
+	// example:
+	//
+	// xxxxx
 	UserId *string `json:"user_id,omitempty" xml:"user_id,omitempty" require:"true"`
 	// 手机号
+	// example:
+	//
+	// 138xxxxxxx
 	PhoneNum *string `json:"phone_num,omitempty" xml:"phone_num,omitempty" require:"true"`
 	// 城市编码
+	// example:
+	//
+	// 110000
 	CityCode *string `json:"city_code,omitempty" xml:"city_code,omitempty" require:"true"`
 	// 姓名
+	// example:
+	//
+	// 张三
 	UserCertName *string `json:"user_cert_name,omitempty" xml:"user_cert_name,omitempty"`
 	// 证件号码
+	// example:
+	//
+	// xxxxx
 	UserCertNo *string `json:"user_cert_no,omitempty" xml:"user_cert_no,omitempty"`
 	// 性别
+	// example:
+	//
+	// girl
 	UserGender *string `json:"user_gender,omitempty" xml:"user_gender,omitempty"`
 	// 昵称
+	// example:
+	//
+	// xxxxx
 	Nick *string `json:"nick,omitempty" xml:"nick,omitempty"`
 }
 
@@ -489,20 +619,44 @@ func (s *CarUserInfo) SetNick(v string) *CarUserInfo {
 // 城市列表
 type SpecList struct {
 	// 品牌Id
+	// example:
+	//
+	// 1
 	BrandId *string `json:"brand_id,omitempty" xml:"brand_id,omitempty" require:"true"`
 	// 品牌名称
+	// example:
+	//
+	// 宝马
 	BrandName *string `json:"brand_name,omitempty" xml:"brand_name,omitempty" require:"true"`
 	// 厂商id
+	// example:
+	//
+	// 1
 	FactoryId *string `json:"factory_id,omitempty" xml:"factory_id,omitempty" require:"true"`
 	// 厂商名称
+	// example:
+	//
+	// 华晨宝马
 	FactoryName *string `json:"factory_name,omitempty" xml:"factory_name,omitempty" require:"true"`
 	// 车系id
+	// example:
+	//
+	// 100
 	SeriesId *string `json:"series_id,omitempty" xml:"series_id,omitempty" require:"true"`
 	// 车系名称
+	// example:
+	//
+	// 宝马X5
 	SeriesName *string `json:"series_name,omitempty" xml:"series_name,omitempty" require:"true"`
 	// 车型Id
+	// example:
+	//
+	// 1001
 	SpecId *string `json:"spec_id,omitempty" xml:"spec_id,omitempty" require:"true"`
 	// 车型名称
+	// example:
+	//
+	// 2026款 改款 xDrive 40Li M运动曜夜套装
 	SpecName *string `json:"spec_name,omitempty" xml:"spec_name,omitempty" require:"true"`
 }
 
@@ -557,24 +711,54 @@ func (s *SpecList) SetSpecName(v string) *SpecList {
 // 高德店铺基本系返回record
 type GdStoreRecord struct {
 	// 店铺ID
+	// example:
+	//
+	// 01cc5d1cc0
 	ShopId *string `json:"shop_id,omitempty" xml:"shop_id,omitempty" require:"true"`
 	// 店铺名称
+	// example:
+	//
+	// xxxx
 	Name *string `json:"name,omitempty" xml:"name,omitempty" require:"true"`
 	// 店铺地址
+	// example:
+	//
+	// xxxx
 	Address *string `json:"address,omitempty" xml:"address,omitempty" require:"true"`
 	// 店铺所在省份
+	// example:
+	//
+	// xxxx
 	Pname *string `json:"pname,omitempty" xml:"pname,omitempty" require:"true"`
 	// 店铺所在城市
+	// example:
+	//
+	// xxxx
 	Cityname *string `json:"cityname,omitempty" xml:"cityname,omitempty" require:"true"`
 	// 品牌id
+	// example:
+	//
+	// xxxx
 	BrandId *string `json:"brand_id,omitempty" xml:"brand_id,omitempty" require:"true"`
 	// 品牌名称
+	// example:
+	//
+	// xxxx
 	BrandName *string `json:"brand_name,omitempty" xml:"brand_name,omitempty" require:"true"`
 	// 经销商代码
+	// example:
+	//
+	// xxxx
 	OfficeCode *string `json:"office_code,omitempty" xml:"office_code,omitempty" require:"true"`
 	// 经度
+	// example:
+	//
+	// xxxx
 	Lon *string `json:"lon,omitempty" xml:"lon,omitempty" require:"true"`
 	// 纬度
+	// example:
+	//
+	// xxxx
 	Lat *string `json:"lat,omitempty" xml:"lat,omitempty" require:"true"`
 	// 店铺数据版本集合
 	VersionList []*string `json:"version_list,omitempty" xml:"version_list,omitempty" require:"true" type:"Repeated"`
@@ -648,20 +832,38 @@ type GdPotentialCustomerRecord struct {
 	// uv指数
 	Uv *GdCustomerUv `json:"uv,omitempty" xml:"uv,omitempty" require:"true"`
 	// 城市编码，数据类型为店铺或者城市时返回该属性与值
+	// example:
+	//
+	// xxxx
 	Citycode *string `json:"citycode,omitempty" xml:"citycode,omitempty"`
 	// pv指数
 	Pv *GdCustomerPv `json:"pv,omitempty" xml:"pv,omitempty" require:"true"`
 	// 店铺id，数据类型为店铺时返回该属性与值
+	// example:
+	//
+	// xxxx
 	ShopId *string `json:"shop_id,omitempty" xml:"shop_id,omitempty"`
 	// 品牌id
+	// example:
+	//
+	// xxxx
 	BrandId *string `json:"brand_id,omitempty" xml:"brand_id,omitempty" require:"true"`
 	// 店铺数量（dataType!=SHOP时返回该字段）
 	ShopNum *int64 `json:"shop_num,omitempty" xml:"shop_num,omitempty"`
 	// 时间（时间类型为天时：yyyyMMdd；时间类型为周时：yyyyWW；时间类型为月时：yyyyMM）
+	// example:
+	//
+	// xxxx
 	Time *string `json:"time,omitempty" xml:"time,omitempty" require:"true"`
 	// 省份编码，数据类型为省份时返回该属性与值
+	// example:
+	//
+	// xxxx
 	Pcode *string `json:"pcode,omitempty" xml:"pcode,omitempty"`
 	// 数据类型为全国时返回该属性与值
+	// example:
+	//
+	// xxxx
 	Countrycode *string `json:"countrycode,omitempty" xml:"countrycode,omitempty"`
 }
 
@@ -721,32 +923,71 @@ func (s *GdPotentialCustomerRecord) SetCountrycode(v string) *GdPotentialCustome
 // 电池报告返回数据详情
 type BatteryReportData struct {
 	// VIN码
+	// example:
+	//
+	// -
 	VinCode *string `json:"vin_code,omitempty" xml:"vin_code,omitempty" require:"true"`
 	// 评估时间，报告生成时间 yyyy-MM-dd HH:mm:ss
+	// example:
+	//
+	// -
 	EvaluateTime *string `json:"evaluate_time,omitempty" xml:"evaluate_time,omitempty" require:"true"`
 	// 当前 SOH（%），数值 0-100
+	// example:
+	//
+	// 12
 	CurrentSoh *string `json:"current_soh,omitempty" xml:"current_soh,omitempty" require:"true"`
 	// SOH 评级：优秀 100-95 良好 95-90 中等 90-85 较差 85-80 差 80 以下
+	// example:
+	//
+	// -
 	SohLvStr *string `json:"soh_lv_str,omitempty" xml:"soh_lv_str,omitempty" require:"true"`
 	// 电池衰退水平值
+	// example:
+	//
+	// 1
 	VolumeScoreRecession *string `json:"volume_score_recession,omitempty" xml:"volume_score_recession,omitempty" require:"true"`
 	// 安全风险水平：低 较低 较高 高
+	// example:
+	//
+	// -
 	VolumeScoreRecessionLvStr *string `json:"volume_score_recession_lv_str,omitempty" xml:"volume_score_recession_lv_str,omitempty" require:"true"`
 	// 安全风险水平解读文案
+	// example:
+	//
+	// -
 	VolumeScoreRecessionNarrate *string `json:"volume_score_recession_narrate,omitempty" xml:"volume_score_recession_narrate,omitempty" require:"true"`
 	// 保障状态 0：未保障 1：保障中 2：保障结束
 	SafeguardStatus *int64 `json:"safeguard_status,omitempty" xml:"safeguard_status,omitempty" require:"true"`
 	// 保障截止期 yyyy-MM-dd HH:mm:ss
+	// example:
+	//
+	// -
 	SafeguardEndTime *string `json:"safeguard_end_time,omitempty" xml:"safeguard_end_time,omitempty" require:"true"`
 	// 本轮首检 SOH（%）数值 0-100
+	// example:
+	//
+	// 1
 	InitialSoh *string `json:"initial_soh,omitempty" xml:"initial_soh,omitempty" require:"true"`
 	// 本轮首检 评估时间 yyyy-MM-dd HH:mm:ss
+	// example:
+	//
+	// -
 	InitialSohEvaluateTime *string `json:"initial_soh_evaluate_time,omitempty" xml:"initial_soh_evaluate_time,omitempty" require:"true"`
 	// 本轮首检 充电单号
+	// example:
+	//
+	// -
 	InitialChargeSeq *string `json:"initial_charge_seq,omitempty" xml:"initial_charge_seq,omitempty" require:"true"`
 	// 触发赔付 SOH（%），数值 0-100
+	// example:
+	//
+	// 1
 	SafeguardMaxSubSoh *string `json:"safeguard_max_sub_soh,omitempty" xml:"safeguard_max_sub_soh,omitempty" require:"true"`
 	// 是否触发赔付，当前 SOH≤触发赔付 SOH 时为 true
+	// example:
+	//
+	// true, false
 	CompensationTriggered *bool `json:"compensation_triggered,omitempty" xml:"compensation_triggered,omitempty" require:"true"`
 	// SOH 衰退预测-X 轴标题（年）
 	YearSohTitle []*string `json:"year_soh_title,omitempty" xml:"year_soh_title,omitempty" require:"true" type:"Repeated"`
@@ -755,26 +996,56 @@ type BatteryReportData struct {
 	// 同类型车电池衰退预测，逐年 SOH（%）
 	PeerEstimateYearSoh []*string `json:"peer_estimate_year_soh,omitempty" xml:"peer_estimate_year_soh,omitempty" require:"true" type:"Repeated"`
 	// 电池厂商
+	// example:
+	//
+	// -
 	BatteryManufacturer *string `json:"battery_manufacturer,omitempty" xml:"battery_manufacturer,omitempty" require:"true"`
 	// 标称能量，单位 kWh
+	// example:
+	//
+	// 1
 	NominalEnergy *string `json:"nominal_energy,omitempty" xml:"nominal_energy,omitempty" require:"true"`
 	// 标称容量，单位 Ah
+	// example:
+	//
+	// 1
 	RateCapacity *string `json:"rate_capacity,omitempty" xml:"rate_capacity,omitempty" require:"true"`
 	// 电池类型
+	// example:
+	//
+	// -
 	BatteryType *string `json:"battery_type,omitempty" xml:"battery_type,omitempty" require:"true"`
 	// 车辆生产年份
+	// example:
+	//
+	// -
 	ManufacturerDate *string `json:"manufacturer_date,omitempty" xml:"manufacturer_date,omitempty" require:"true"`
 	// 权益说明文案
+	// example:
+	//
+	// -
 	RightsDesc *string `json:"rights_desc,omitempty" xml:"rights_desc,omitempty" require:"true"`
 	// 权益说明-状态
+	// example:
+	//
+	// -
 	RightStatus *string `json:"right_status,omitempty" xml:"right_status,omitempty" require:"true"`
 	// 电池健康度-建议
 	SohSuggest []*string `json:"soh_suggest,omitempty" xml:"soh_suggest,omitempty" require:"true" type:"Repeated"`
 	// 保障金额
+	// example:
+	//
+	// -
 	SafeguardAmount *string `json:"safeguard_amount,omitempty" xml:"safeguard_amount,omitempty"`
 	// 保障天数
+	// example:
+	//
+	// -
 	SafeguardDays *int64 `json:"safeguard_days,omitempty" xml:"safeguard_days,omitempty"`
 	// SOH允许衰退阈值
+	// example:
+	//
+	// -
 	AllowMaxSohDiff *string `json:"allow_max_soh_diff,omitempty" xml:"allow_max_soh_diff,omitempty"`
 }
 
@@ -929,24 +1200,45 @@ func (s *BatteryReportData) SetAllowMaxSohDiff(v string) *BatteryReportData {
 // 高德数据集合内record
 type GdCustomersRecord struct {
 	// 城市编码，数据类型为店铺或者城市时返回该属性与值
+	// example:
+	//
+	// 021
 	Citycode *string `json:"citycode,omitempty" xml:"citycode,omitempty" require:"true"`
 	// 品牌id
+	// example:
+	//
+	// 104
 	BrandId *string `json:"brand_id,omitempty" xml:"brand_id,omitempty" require:"true"`
 	// 店铺id，数据类型为店铺或者店铺品牌时返回该属性与值
+	// example:
+	//
+	// 26nhJ8duzh
 	ShopId *string `json:"shop_id,omitempty" xml:"shop_id,omitempty" require:"true"`
 	// 时间（时间类型为天时：yyyyMMdd；时间类型为周时：yyyyWW；时间类型为月时：yyyyMM）
+	// example:
+	//
+	// 20230102
 	Time *string `json:"time,omitempty" xml:"time,omitempty" require:"true"`
 	// 重叠指数集合
 	OverlapList []*Overlap `json:"overlap_list,omitempty" xml:"overlap_list,omitempty" require:"true" type:"Repeated"`
 	// 重叠指数集合条数
+	// example:
+	//
+	// 2
 	OverlapListNum *string `json:"overlap_list_num,omitempty" xml:"overlap_list_num,omitempty" require:"true"`
 	// 流入指数集合
 	SrcList []*GdSrc `json:"src_list,omitempty" xml:"src_list,omitempty" require:"true" type:"Repeated"`
 	// 流入指数条数
+	// example:
+	//
+	// 2
 	SrcListNum *string `json:"src_list_num,omitempty" xml:"src_list_num,omitempty" require:"true"`
 	// 流出指数集合
 	DestList []*GdDest `json:"dest_list,omitempty" xml:"dest_list,omitempty" require:"true" type:"Repeated"`
 	// 流出指数条数
+	// example:
+	//
+	// 2
 	DestListNum *string `json:"dest_list_num,omitempty" xml:"dest_list_num,omitempty" require:"true"`
 }
 
@@ -1011,20 +1303,41 @@ func (s *GdCustomersRecord) SetDestListNum(v string) *GdCustomersRecord {
 // 新车线索集合
 type NewCarInfo struct {
 	// 车系
+	// example:
+	//
+	// xxx
 	CarSeries *string `json:"car_series,omitempty" xml:"car_series,omitempty" require:"true"`
 	// 金融方案
+	// example:
+	//
+	// xxx
 	FinaicalPlan *string `json:"finaical_plan,omitempty" xml:"finaical_plan,omitempty"`
 	// 车系id
+	// example:
+	//
+	// xxx
 	CarSeriesId *string `json:"car_series_id,omitempty" xml:"car_series_id,omitempty"`
 	// 请求提交唯一id
+	// example:
+	//
+	// xxxxx
 	SubmitId *string `json:"submit_id,omitempty" xml:"submit_id,omitempty"`
 	// 预计购买时间
+	// example:
+	//
+	// 1
 	PurcharseTime *string `json:"purcharse_time,omitempty" xml:"purcharse_time,omitempty"`
 	// 用户信息
 	UserInfo *CarUserInfo `json:"user_info,omitempty" xml:"user_info,omitempty" require:"true"`
 	// 懂车帝或者汽车之家
+	// example:
+	//
+	// DCD/QC
 	MatchSource *string `json:"match_source,omitempty" xml:"match_source,omitempty"`
 	// 汽车之家车型id
+	// example:
+	//
+	// 123
 	QcCarSeriesId *string `json:"qc_car_series_id,omitempty" xml:"qc_car_series_id,omitempty"`
 }
 
@@ -1079,18 +1392,36 @@ func (s *NewCarInfo) SetQcCarSeriesId(v string) *NewCarInfo {
 // 电池衰退报告结果
 type BatteryReportResult struct {
 	// 订单号 (可使用该 ID 将报告转图片)
+	// example:
+	//
+	// -
 	OrderId *string `json:"order_id,omitempty" xml:"order_id,omitempty" require:"true"`
 	// 保障码，VIN 在 7 天内首次检测时生成，每轮保障采用同一保障码
+	// example:
+	//
+	// -
 	GuaranteeCode *string `json:"guarantee_code,omitempty" xml:"guarantee_code,omitempty" require:"true"`
 	// 当前充电单号
+	// example:
+	//
+	// -
 	CurrentStartChargeSeq *string `json:"current_start_charge_seq,omitempty" xml:"current_start_charge_seq,omitempty" require:"true"`
 	// 是否计费
+	// example:
+	//
+	// true, false
 	Charge *bool `json:"charge,omitempty" xml:"charge,omitempty" require:"true"`
 	// 检测类型 6601：首检 6602：复核
+	// example:
+	//
+	// 6601
 	CheckType *int64 `json:"check_type,omitempty" xml:"check_type,omitempty" require:"true"`
 	// 报告数据
 	ReportData *BatteryReportData `json:"report_data,omitempty" xml:"report_data,omitempty" require:"true"`
 	// 是否为保障类订单
+	// example:
+	//
+	// true
 	SafeguardEnabled *bool `json:"safeguard_enabled,omitempty" xml:"safeguard_enabled,omitempty" require:"true"`
 }
 
@@ -1140,18 +1471,39 @@ func (s *BatteryReportResult) SetSafeguardEnabled(v bool) *BatteryReportResult {
 // 车信息
 type BasicCarInfo struct {
 	// 车牌号
+	// example:
+	//
+	// xxxx
 	LicenseNo *string `json:"license_no,omitempty" xml:"license_no,omitempty" require:"true"`
 	// 车架号
+	// example:
+	//
+	// xxxxx
 	Vin *string `json:"vin,omitempty" xml:"vin,omitempty" require:"true"`
 	// 发动机号
+	// example:
+	//
+	// xxxxx
 	EngineNo *string `json:"engine_no,omitempty" xml:"engine_no,omitempty" require:"true"`
 	// 初登日期
+	// example:
+	//
+	// 2021-12-21
 	RegisterDate *string `json:"register_date,omitempty" xml:"register_date,omitempty" require:"true"`
 	// 车辆型号
+	// example:
+	//
+	// xxxxx
 	ModelCode *string `json:"model_code,omitempty" xml:"model_code,omitempty" require:"true"`
 	// 营运性质
+	// example:
+	//
+	// xxxxx
 	UseNatureCode *string `json:"use_nature_code,omitempty" xml:"use_nature_code,omitempty" require:"true"`
 	// 是否抵押
+	// example:
+	//
+	// true, false
 	Mortgage *bool `json:"mortgage,omitempty" xml:"mortgage,omitempty"`
 }
 
@@ -1201,24 +1553,54 @@ func (s *BasicCarInfo) SetMortgage(v bool) *BasicCarInfo {
 // 车辆业务价格
 type CarBusinessPrice struct {
 	// 品牌id
+	// example:
+	//
+	// xx
 	BrandId *string `json:"brand_id,omitempty" xml:"brand_id,omitempty"`
 	// 品牌名称
+	// example:
+	//
+	// xxx
 	BrandName *string `json:"brand_name,omitempty" xml:"brand_name,omitempty"`
 	// 车系id
+	// example:
+	//
+	// xxx
 	CarSeriesId *string `json:"car_series_id,omitempty" xml:"car_series_id,omitempty"`
 	// 车系名称
+	// example:
+	//
+	// xxx
 	CarSeries *string `json:"car_series,omitempty" xml:"car_series,omitempty"`
 	// 车型id
+	// example:
+	//
+	// xxx
 	CarId *string `json:"car_id,omitempty" xml:"car_id,omitempty"`
 	// 车型名称
+	// example:
+	//
+	// xxx
 	CarName *string `json:"car_name,omitempty" xml:"car_name,omitempty"`
 	// 年款
+	// example:
+	//
+	// xxx
 	CarYear *string `json:"car_year,omitempty" xml:"car_year,omitempty"`
 	// 城市code
+	// example:
+	//
+	// xxx
 	CityCode *string `json:"city_code,omitempty" xml:"city_code,omitempty"`
 	// 城市名称
+	// example:
+	//
+	// xxx
 	CityName *string `json:"city_name,omitempty" xml:"city_name,omitempty"`
 	// 车系指导价（范围值） 单位到分
+	// example:
+	//
+	// {"min":1234,"max":5678}
 	SeriesGuidePrice *string `json:"series_guide_price,omitempty" xml:"series_guide_price,omitempty"`
 	// 车型指导价（具体值）单位到分
 	OfficialPrice *int64 `json:"official_price,omitempty" xml:"official_price,omitempty"`
@@ -1233,6 +1615,9 @@ type CarBusinessPrice struct {
 	// 商业险（具体值）单位到分
 	BusinessInsurance *int64 `json:"business_insurance,omitempty" xml:"business_insurance,omitempty"`
 	// json 扩展字段
+	// example:
+	//
+	// {"xx":""}
 	ExtraContent *string `json:"extra_content,omitempty" xml:"extra_content,omitempty"`
 }
 
@@ -1332,11 +1717,23 @@ func (s *CarBusinessPrice) SetExtraContent(v string) *CarBusinessPrice {
 // 批量提交结果
 type BatchSubmitCarResult struct {
 	// 提交线索唯一请求id
+	// example:
+	//
+	// xxx
 	SubmitId *string `json:"submit_id,omitempty" xml:"submit_id,omitempty" require:"true"`
 	// 是否成功
+	// example:
+	//
+	// true, false
 	IsSuccess *bool `json:"is_success,omitempty" xml:"is_success,omitempty" require:"true"`
 	// OK NO_DEMAND 无线索需求，需要重试 INVALID 无效，不要重试，PENDING 未知，需要重试
+	// example:
+	//
+	// OK/INVALID/NO_DEMAND/PENDING
 	PushResultCode *string `json:"push_result_code,omitempty" xml:"push_result_code,omitempty" require:"true"`
+	// 失败原因
+	// example:
+	//
 	// 失败原因
 	InvalidReason *string `json:"invalid_reason,omitempty" xml:"invalid_reason,omitempty"`
 }
@@ -1372,14 +1769,29 @@ func (s *BatchSubmitCarResult) SetInvalidReason(v string) *BatchSubmitCarResult 
 // 车辆信息
 type CarInfo struct {
 	// 车牌号
+	// example:
+	//
+	// xxx
 	LicenseNo *string `json:"license_no,omitempty" xml:"license_no,omitempty" require:"true"`
 	// 车架号
+	// example:
+	//
+	// xxx
 	Vin *string `json:"vin,omitempty" xml:"vin,omitempty" require:"true"`
 	// 发动机号
+	// example:
+	//
+	// xxx
 	EngineNo *string `json:"engine_no,omitempty" xml:"engine_no,omitempty" require:"true"`
 	// 注册日期
+	// example:
+	//
+	// xxx
 	RegisterDate *string `json:"register_date,omitempty" xml:"register_date,omitempty" require:"true"`
 	// 车型
+	// example:
+	//
+	// xxx
 	ModelCode *string `json:"model_code,omitempty" xml:"model_code,omitempty" require:"true"`
 }
 
@@ -1419,8 +1831,14 @@ func (s *CarInfo) SetModelCode(v string) *CarInfo {
 // 省份集合
 type Province struct {
 	// 省份id
+	// example:
+	//
+	// xxxx
 	Pid *string `json:"pid,omitempty" xml:"pid,omitempty" require:"true"`
 	// 省份名
+	// example:
+	//
+	// 1
 	Pname *string `json:"pname,omitempty" xml:"pname,omitempty" require:"true"`
 }
 
@@ -1445,10 +1863,19 @@ func (s *Province) SetPname(v string) *Province {
 // 城市集合
 type City struct {
 	// 省份id
+	// example:
+	//
+	// 省份id
 	Pid *string `json:"pid,omitempty" xml:"pid,omitempty" require:"true"`
+	// 城市id
+	// example:
+	//
 	// 城市id
 	Cid *string `json:"cid,omitempty" xml:"cid,omitempty" require:"true"`
 	// 城市名
+	// example:
+	//
+	// xxxx
 	Cname *string `json:"cname,omitempty" xml:"cname,omitempty" require:"true"`
 }
 
@@ -1478,14 +1905,29 @@ func (s *City) SetCname(v string) *City {
 // 高德潜客流向数据返回数据对象
 type GdCustomerInfo struct {
 	// 时间范围（查询年度数据时，返回该字段）
+	// example:
+	//
+	// xxxx
 	TimeRange *string `json:"time_range,omitempty" xml:"time_range,omitempty"`
 	// 数据总数
+	// example:
+	//
+	// 638
 	Total *int64 `json:"total,omitempty" xml:"total,omitempty" require:"true"`
 	// 当前展示页
+	// example:
+	//
+	// 1
 	Current *int64 `json:"current,omitempty" xml:"current,omitempty" require:"true"`
 	// 数据总页数
+	// example:
+	//
+	// 638
 	Pages *int64 `json:"pages,omitempty" xml:"pages,omitempty" require:"true"`
 	// 每页显示数据条数
+	// example:
+	//
+	// 1
 	Size *int64 `json:"size,omitempty" xml:"size,omitempty" require:"true"`
 	// 数据集合
 	Records []*GdCustomersRecord `json:"records,omitempty" xml:"records,omitempty" require:"true" type:"Repeated"`
@@ -1532,20 +1974,44 @@ func (s *GdCustomerInfo) SetRecords(v []*GdCustomersRecord) *GdCustomerInfo {
 // 高德潜客请求req
 type GdCustomerFlow struct {
 	// 当前页面
+	// example:
+	//
+	// 1
 	Current *int64 `json:"current,omitempty" xml:"current,omitempty" require:"true"`
 	// 数据类型（SHOP：店铺；CITY：城市；PROVINCE：省份；COUNTRY：全国；SHOP_BRAND：店铺品牌(仅限竞品)）
+	// example:
+	//
+	// SHOP
 	DataType *string `json:"data_type,omitempty" xml:"data_type,omitempty"`
 	// 时间类型（DAY：天；WEEK：周；MONTH：月；仅针对城市和店铺品牌的竞品数据支持的时间类型为，季度：QUARTER；半年：HALF；年：YEAR）
+	// example:
+	//
+	// DAY
 	TimeType *string `json:"time_type,omitempty" xml:"time_type,omitempty"`
 	// 主品牌id
+	// example:
+	//
+	// 102
 	MainBrand *string `json:"main_brand,omitempty" xml:"main_brand,omitempty"`
 	// 时间（时间类型为天时：yyyyMMdd；时间类型为周时：yyyyWW；时间类型为月时：yyyyMM；时间类型为季度时：yyyyQQ；时间类型为半年时：yyyyBB；时间类型为年时：yyyy；）
+	// example:
+	//
+	// 20230103
 	Time *string `json:"time,omitempty" xml:"time,omitempty"`
 	// 品牌id，以”,”分隔
+	// example:
+	//
+	// 102
 	BrandLimit *string `json:"brand_limit,omitempty" xml:"brand_limit,omitempty"`
 	// 数据指数类型（pv、uv中选择，多个以”,”分隔）
+	// example:
+	//
+	// pv,uv
 	DataLimit *string `json:"data_limit,omitempty" xml:"data_limit,omitempty"`
 	// 数据统计逻辑（0：默认值，基于本品或竞品获取；1：基于本品获取）
+	// example:
+	//
+	// 1
 	BaseSelf *int64 `json:"base_self,omitempty" xml:"base_self,omitempty"`
 }
 
@@ -1600,16 +2066,34 @@ func (s *GdCustomerFlow) SetBaseSelf(v int64) *GdCustomerFlow {
 // 二手车估价信息
 type UsedCarValuation struct {
 	// 评估金额(万)
+	// example:
+	//
+	// 1.15-1.43
 	Referenceprice *string `json:"referenceprice,omitempty" xml:"referenceprice,omitempty" require:"true"`
 	// 官方报价(参考)(万)
+	// example:
+	//
+	// 54.5
 	Newcarprice *string `json:"newcarprice,omitempty" xml:"newcarprice,omitempty" require:"true"`
 	// 车型图片(参考)
+	// example:
+	//
+	// "http://car0.autoimg.cn/cardfs/product/g32/M08/A5/55/t_autohomecar__ChxkPmZijMqAMuHJAALTBQ2Tti4239.jpg"
 	Url *string `json:"url,omitempty" xml:"url,omitempty" require:"true"`
 	// 车况好(万)(三个价格用"-"分隔,第一个是较小值第二个是...
+	// example:
+	//
+	// 1.30-1.38-1.45
 	Conditiona *string `json:"conditiona,omitempty" xml:"conditiona,omitempty" require:"true"`
 	// 车况正常(万)
+	// example:
+	//
+	// 1.18-1.29-1.41
 	Conditionb *string `json:"conditionb,omitempty" xml:"conditionb,omitempty" require:"true"`
 	// 车况差(万)
+	// example:
+	//
+	// 1.04-1.16-1.28
 	Conditionc *string `json:"conditionc,omitempty" xml:"conditionc,omitempty" require:"true"`
 }
 
@@ -1654,6 +2138,9 @@ func (s *UsedCarValuation) SetConditionc(v string) *UsedCarValuation {
 // 高德潜客指数返回数据对象
 type GdPotentialCustomerInfo struct {
 	// 时间范围（查询月度或年度数据时，返回该字段）
+	// example:
+	//
+	// xxxx
 	TimeRange *string `json:"time_range,omitempty" xml:"time_range,omitempty"`
 	// 数据总数
 	Total *int64 `json:"total,omitempty" xml:"total,omitempty" require:"true"`
@@ -1708,10 +2195,19 @@ func (s *GdPotentialCustomerInfo) SetRecords(v []*GdPotentialCustomerRecord) *Gd
 // 车型信息
 type ProductInfo struct {
 	// 能源类型
+	// example:
+	//
+	// xxxx
 	Fueltype *string `json:"fueltype,omitempty" xml:"fueltype,omitempty" require:"true"`
 	// 车型名称
+	// example:
+	//
+	// xxxx
 	Name *string `json:"name,omitempty" xml:"name,omitempty" require:"true"`
 	// 车型id
+	// example:
+	//
+	// xxxx
 	Id *string `json:"id,omitempty" xml:"id,omitempty" require:"true"`
 }
 
@@ -1741,8 +2237,14 @@ func (s *ProductInfo) SetId(v string) *ProductInfo {
 // 设备信息
 type DeviceBean struct {
 	// 选填其中一个：imeiMd5、macMd5、adid、adidMd5、did、idfa、idfaMd5、caid、caidMd5、oaid、oaidMd5、aaid、aaidMd5、gtcid、mb、pnSha256、cid、gid
+	// example:
+	//
+	// -
 	DeviceIdType *string `json:"device_id_type,omitempty" xml:"device_id_type,omitempty" require:"true"`
 	// 设备ID列表（最多200个，不要重复）
+	// example:
+	//
+	// undefined
 	DeviceIdList []*string `json:"device_id_list,omitempty" xml:"device_id_list,omitempty" require:"true" type:"Repeated"`
 }
 
@@ -1767,8 +2269,14 @@ func (s *DeviceBean) SetDeviceIdList(v []*string) *DeviceBean {
 // 汽车之家城市信息
 type CityResult struct {
 	// 城市Id
+	// example:
+	//
+	// 110000
 	CityId *string `json:"city_id,omitempty" xml:"city_id,omitempty" require:"true"`
 	// 城市名称
+	// example:
+	//
+	// 北京
 	CityName *string `json:"city_name,omitempty" xml:"city_name,omitempty" require:"true"`
 }
 
@@ -1805,8 +2313,14 @@ func (s TagBeanRecords) GoString() string {
 // 用户基本信息
 type CarOwnerUserInfo struct {
 	// 用户id
+	// example:
+	//
+	// XX
 	UserId *string `json:"user_id,omitempty" xml:"user_id,omitempty" require:"true"`
 	// 手机号
+	// example:
+	//
+	// xxx
 	PhoneNum *string `json:"phone_num,omitempty" xml:"phone_num,omitempty" require:"true"`
 }
 
@@ -1831,12 +2345,24 @@ func (s *CarOwnerUserInfo) SetPhoneNum(v string) *CarOwnerUserInfo {
 // 长安画像标签
 type TagBean struct {
 	// 标签编码
+	// example:
+	//
+	// 01qe000
 	Tid *string `json:"tid,omitempty" xml:"tid,omitempty"`
 	// 标签类目
+	// example:
+	//
+	// xxxx
 	Category *string `json:"category,omitempty" xml:"category,omitempty"`
 	// 标签名称
+	// example:
+	//
+	// xxxx
 	Tname *string `json:"tname,omitempty" xml:"tname,omitempty"`
 	// 标签值名称
+	// example:
+	//
+	// xxxx
 	Tvname *string `json:"tvname,omitempty" xml:"tvname,omitempty"`
 }
 
@@ -1918,24 +2444,54 @@ func (s *GdStoreInfo) SetRecords(v []*GdStoreRecord) *GdStoreInfo {
 // 二手车
 type UsedCarInfo struct {
 	// 渠道方线索业务id
+	// example:
+	//
+	// xxxx
 	LeadId *string `json:"lead_id,omitempty" xml:"lead_id,omitempty" require:"true"`
 	// 城市名称
+	// example:
+	//
+	// xxx
 	CityName *string `json:"city_name,omitempty" xml:"city_name,omitempty" require:"true"`
 	// 城市id
+	// example:
+	//
+	// xxxx
 	Cid *string `json:"cid,omitempty" xml:"cid,omitempty" require:"true"`
 	// 品牌名称
+	// example:
+	//
+	// xxxx
 	BrandName *string `json:"brand_name,omitempty" xml:"brand_name,omitempty"`
 	// 车系名称
+	// example:
+	//
+	// xxx
 	SeriesName *string `json:"series_name,omitempty" xml:"series_name,omitempty"`
 	// 车型名称
+	// example:
+	//
+	// xxxx
 	SpecName *string `json:"spec_name,omitempty" xml:"spec_name,omitempty"`
 	// 首次上牌时间格式 yyyy/MM/dd
+	// example:
+	//
+	// 2020/01/01
 	FirstRegTime *string `json:"first_reg_time,omitempty" xml:"first_reg_time,omitempty" require:"true"`
 	// 行驶公里数(km)
+	// example:
+	//
+	// 12345.67
 	Mileage *string `json:"mileage,omitempty" xml:"mileage,omitempty" require:"true"`
 	// 省份id
+	// example:
+	//
+	// xxxx
 	Pid *string `json:"pid,omitempty" xml:"pid,omitempty" require:"true"`
 	// 汽车之家车型id
+	// example:
+	//
+	// xxxx
 	Specid *string `json:"specid,omitempty" xml:"specid,omitempty" require:"true"`
 }
 
@@ -2000,8 +2556,14 @@ func (s *UsedCarInfo) SetSpecid(v string) *UsedCarInfo {
 // 品牌列表
 type Brandlist struct {
 	// 首字母
+	// example:
+	//
+	// xxxx
 	Letter *string `json:"letter,omitempty" xml:"letter,omitempty" require:"true"`
 	// 品牌信息列表
+	// example:
+	//
+	// 123
 	List []*LetterInfo `json:"list,omitempty" xml:"list,omitempty" require:"true" type:"Repeated"`
 }
 
@@ -2026,8 +2588,14 @@ func (s *Brandlist) SetList(v []*LetterInfo) *Brandlist {
 // 线索状态信息
 type LeadInfo struct {
 	// 线索信息
+	// example:
+	//
+	// xxxx
 	LeadId *string `json:"lead_id,omitempty" xml:"lead_id,omitempty" require:"true"`
 	// 状态值
+	// example:
+	//
+	// xxxx
 	Status *string `json:"status,omitempty" xml:"status,omitempty" require:"true"`
 }
 
@@ -2052,10 +2620,19 @@ func (s *LeadInfo) SetStatus(v string) *LeadInfo {
 // 区县集合
 type County struct {
 	// 城市id
+	// example:
+	//
+	// xxxx
 	Cid *string `json:"cid,omitempty" xml:"cid,omitempty" require:"true"`
 	// 区县id
+	// example:
+	//
+	// xxxx
 	Countyid *string `json:"countyid,omitempty" xml:"countyid,omitempty" require:"true"`
 	// 区县名
+	// example:
+	//
+	// xxxx
 	Countyname *string `json:"countyname,omitempty" xml:"countyname,omitempty" require:"true"`
 }
 
@@ -2085,12 +2662,24 @@ func (s *County) SetCountyname(v string) *County {
 // 常岳用户结构体
 type CyUserInfo struct {
 	// 用户id
+	// example:
+	//
+	// xxx
 	UserId *string `json:"user_id,omitempty" xml:"user_id,omitempty" require:"true"`
 	// 用户名
+	// example:
+	//
+	// xxxx
 	UserName *string `json:"user_name,omitempty" xml:"user_name,omitempty"`
 	// 证件号
+	// example:
+	//
+	// xxx
 	IdCard *string `json:"id_card,omitempty" xml:"id_card,omitempty"`
 	// 手机号
+	// example:
+	//
+	// xxx
 	PhoneNum *string `json:"phone_num,omitempty" xml:"phone_num,omitempty" require:"true"`
 }
 
@@ -2125,6 +2714,9 @@ func (s *CyUserInfo) SetPhoneNum(v string) *CyUserInfo {
 // 1
 type SpecResult struct {
 	// 下一页数据拉取传递的值
+	// example:
+	//
+	// 10001
 	AfterSpecId *string `json:"after_spec_id,omitempty" xml:"after_spec_id,omitempty" require:"true"`
 	// 车型Id列表
 	SpecList []*SpecList `json:"spec_list,omitempty" xml:"spec_list,omitempty" require:"true" type:"Repeated"`
@@ -2151,32 +2743,68 @@ func (s *SpecResult) SetSpecList(v []*SpecList) *SpecResult {
 // 充电报告查询
 type BatteryReport struct {
 	// 充电单号，最大长度/规则：32
+	// example:
+	//
+	// 202603031234567890
 	StartChargeSeq *string `json:"start_charge_seq,omitempty" xml:"start_charge_seq,omitempty" require:"true"`
 	// VIN，最大长度/规则：17位
+	// example:
+	//
+	// LFV3A2***3123456
 	VinCode *string `json:"vin_code,omitempty" xml:"vin_code,omitempty" require:"true"`
 	// 公告号，最大长度/规则36
+	// example:
+	//
+	// BJ7000USD3-BEV
 	PublicationNo *string `json:"publication_no,omitempty" xml:"publication_no,omitempty"`
 	// 本次累积充电量，单位kWh；最大长度/规则：整数位<=10,小数位<=2
+	// example:
+	//
+	// 25.30
 	TotalPower *string `json:"total_power,omitempty" xml:"total_power,omitempty"`
 	// 本次累积充入SOC（%）；最大长度/规则：0-100,小数位<=2
+	// example:
+	//
+	// 50.00
 	TotalChargeSoc *string `json:"total_charge_soc,omitempty" xml:"total_charge_soc,omitempty"`
 	// 本次充电开始SOC(%)；最大长度/规则：0-100,小数位<=2
+	// example:
+	//
+	// 25.00
 	StartSoc *string `json:"start_soc,omitempty" xml:"start_soc,omitempty"`
 	// 本次充电截止SOC(%)；最大长度/规则：0-100,小数位<=2
+	// example:
+	//
+	// 75.00
 	EndSoc *string `json:"end_soc,omitempty" xml:"end_soc,omitempty"`
 	// 标称能量，单位kWh；最大长度/规则：0-1000,小数位<=2
+	// example:
+	//
+	// 60.00
 	NominalEnergy *string `json:"nominal_energy,omitempty" xml:"nominal_energy,omitempty"`
 	// 充电城市ID；最大长度/规则：30
+	// example:
+	//
+	// -
 	CityId *string `json:"city_id,omitempty" xml:"city_id,omitempty"`
 	// 注册日期；最大长度/规则：yyyy-MM-dd
+	// example:
+	//
+	// 2018-10-10
 	RegisterDate *string `json:"register_date,omitempty" xml:"register_date,omitempty"`
 	// 保障服务标识
 	// NONE：无保障
 	// SEVEN_DAYS：7天保障
 	// THIRTY_DAYS：30天保障
+	// example:
+	//
+	// NONE
 	ServiceSafeguardType *string `json:"service_safeguard_type,omitempty" xml:"service_safeguard_type,omitempty"`
 	// 保障码
 	// 首次查询后接口返回，后续查询过程中，若该参数不为空且有效则生成复检报告；若不传保障码，则当做首检
+	// example:
+	//
+	// -
 	GuaranteeCode *string `json:"guarantee_code,omitempty" xml:"guarantee_code,omitempty"`
 }
 
@@ -2251,8 +2879,14 @@ func (s *BatteryReport) SetGuaranteeCode(v string) *BatteryReport {
 // 键值对
 type XNameValuePair struct {
 	// 键名
+	// example:
+	//
+	// key
 	Name *string `json:"name,omitempty" xml:"name,omitempty" require:"true"`
 	// 键值
+	// example:
+	//
+	// value
 	Value *string `json:"value,omitempty" xml:"value,omitempty" require:"true"`
 }
 
@@ -5350,6 +5984,160 @@ func (s *ExecUnifiedentranceResponse) SetData(v string) *ExecUnifiedentranceResp
 	return s
 }
 
+type QueryLogsNewRequest struct {
+	// OAuth模式下的授权token
+	AuthToken         *string `json:"auth_token,omitempty" xml:"auth_token,omitempty"`
+	ProductInstanceId *string `json:"product_instance_id,omitempty" xml:"product_instance_id,omitempty"`
+	// 场景码
+	SceneCode *string `json:"scene_code,omitempty" xml:"scene_code,omitempty" require:"true"`
+	// 调用接口类型
+	Type *string `json:"type,omitempty" xml:"type,omitempty" require:"true"`
+}
+
+func (s QueryLogsNewRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryLogsNewRequest) GoString() string {
+	return s.String()
+}
+
+func (s *QueryLogsNewRequest) SetAuthToken(v string) *QueryLogsNewRequest {
+	s.AuthToken = &v
+	return s
+}
+
+func (s *QueryLogsNewRequest) SetProductInstanceId(v string) *QueryLogsNewRequest {
+	s.ProductInstanceId = &v
+	return s
+}
+
+func (s *QueryLogsNewRequest) SetSceneCode(v string) *QueryLogsNewRequest {
+	s.SceneCode = &v
+	return s
+}
+
+func (s *QueryLogsNewRequest) SetType(v string) *QueryLogsNewRequest {
+	s.Type = &v
+	return s
+}
+
+type QueryLogsNewResponse struct {
+	// 请求唯一ID，用于链路跟踪和问题排查
+	ReqMsgId *string `json:"req_msg_id,omitempty" xml:"req_msg_id,omitempty"`
+	// 结果码，一般OK表示调用成功
+	ResultCode *string `json:"result_code,omitempty" xml:"result_code,omitempty"`
+	// 异常信息的文本描述
+	ResultMsg *string `json:"result_msg,omitempty" xml:"result_msg,omitempty"`
+	// 出参数据
+	Data *string `json:"data,omitempty" xml:"data,omitempty"`
+}
+
+func (s QueryLogsNewResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryLogsNewResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QueryLogsNewResponse) SetReqMsgId(v string) *QueryLogsNewResponse {
+	s.ReqMsgId = &v
+	return s
+}
+
+func (s *QueryLogsNewResponse) SetResultCode(v string) *QueryLogsNewResponse {
+	s.ResultCode = &v
+	return s
+}
+
+func (s *QueryLogsNewResponse) SetResultMsg(v string) *QueryLogsNewResponse {
+	s.ResultMsg = &v
+	return s
+}
+
+func (s *QueryLogsNewResponse) SetData(v string) *QueryLogsNewResponse {
+	s.Data = &v
+	return s
+}
+
+type ExecLogsNewRequest struct {
+	// OAuth模式下的授权token
+	AuthToken         *string `json:"auth_token,omitempty" xml:"auth_token,omitempty"`
+	ProductInstanceId *string `json:"product_instance_id,omitempty" xml:"product_instance_id,omitempty"`
+	// 场景码
+	SceneCode *string `json:"scene_code,omitempty" xml:"scene_code,omitempty" require:"true"`
+	// 类型
+	Type *string `json:"type,omitempty" xml:"type,omitempty" require:"true"`
+}
+
+func (s ExecLogsNewRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ExecLogsNewRequest) GoString() string {
+	return s.String()
+}
+
+func (s *ExecLogsNewRequest) SetAuthToken(v string) *ExecLogsNewRequest {
+	s.AuthToken = &v
+	return s
+}
+
+func (s *ExecLogsNewRequest) SetProductInstanceId(v string) *ExecLogsNewRequest {
+	s.ProductInstanceId = &v
+	return s
+}
+
+func (s *ExecLogsNewRequest) SetSceneCode(v string) *ExecLogsNewRequest {
+	s.SceneCode = &v
+	return s
+}
+
+func (s *ExecLogsNewRequest) SetType(v string) *ExecLogsNewRequest {
+	s.Type = &v
+	return s
+}
+
+type ExecLogsNewResponse struct {
+	// 请求唯一ID，用于链路跟踪和问题排查
+	ReqMsgId *string `json:"req_msg_id,omitempty" xml:"req_msg_id,omitempty"`
+	// 结果码，一般OK表示调用成功
+	ResultCode *string `json:"result_code,omitempty" xml:"result_code,omitempty"`
+	// 异常信息的文本描述
+	ResultMsg *string `json:"result_msg,omitempty" xml:"result_msg,omitempty"`
+	// 出参
+	Data *string `json:"data,omitempty" xml:"data,omitempty"`
+}
+
+func (s ExecLogsNewResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ExecLogsNewResponse) GoString() string {
+	return s.String()
+}
+
+func (s *ExecLogsNewResponse) SetReqMsgId(v string) *ExecLogsNewResponse {
+	s.ReqMsgId = &v
+	return s
+}
+
+func (s *ExecLogsNewResponse) SetResultCode(v string) *ExecLogsNewResponse {
+	s.ResultCode = &v
+	return s
+}
+
+func (s *ExecLogsNewResponse) SetResultMsg(v string) *ExecLogsNewResponse {
+	s.ResultMsg = &v
+	return s
+}
+
+func (s *ExecLogsNewResponse) SetData(v string) *ExecLogsNewResponse {
+	s.Data = &v
+	return s
+}
+
 type CreateAntcloudGatewayxFileUploadRequest struct {
 	// OAuth模式下的授权token
 	AuthToken *string `json:"auth_token,omitempty" xml:"auth_token,omitempty"`
@@ -5492,10 +6280,11 @@ type Client struct {
 	MaxRequestsPerHost      *int
 }
 
-/**
- * Init client with Config
- * @param config config contains the necessary information to create a client
- */
+// Description:
+//
+// # Init client with Config
+//
+// @param config - config contains the necessary information to create a client
 func NewClient(config *Config) (*Client, error) {
 	client := new(Client)
 	err := client.Init(config)
@@ -5503,7 +6292,7 @@ func NewClient(config *Config) (*Client, error) {
 }
 
 func (client *Client) Init(config *Config) (_err error) {
-	if tea.BoolValue(util.IsUnset(tea.ToMap(config))) {
+	if tea.BoolValue(util.IsUnset(config)) {
 		_err = tea.NewSDKError(map[string]interface{}{
 			"code":    "ParameterMissing",
 			"message": "'config' can not be unset",
@@ -5532,16 +6321,23 @@ func (client *Client) Init(config *Config) (_err error) {
 	return nil
 }
 
-/**
- * Encapsulate the request and invoke the network
- * @param action api name
- * @param protocol http or https
- * @param method e.g. GET
- * @param pathname pathname of every api
- * @param request which contains request params
- * @param runtime which controls some details of call api, such as retry times
- * @return the response
- */
+// Description:
+//
+// # Encapsulate the request and invoke the network
+//
+// @param action - api name
+//
+// @param protocol - http or https
+//
+// @param method - e.g. GET
+//
+// @param pathname - pathname of every api
+//
+// @param request - which contains request params
+//
+// @param runtime - which controls some details of call api, such as retry times
+//
+// @return the response
 func (client *Client) DoRequest(version *string, action *string, protocol *string, method *string, pathname *string, request map[string]interface{}, headers map[string]*string, runtime *util.RuntimeOptions) (_result map[string]interface{}, _err error) {
 	_err = tea.Validate(runtime)
 	if _err != nil {
@@ -5592,7 +6388,7 @@ func (client *Client) DoRequest(version *string, action *string, protocol *strin
 				"req_msg_id":       antchainutil.GetNonce(),
 				"access_key":       client.AccessKeyId,
 				"base_sdk_version": tea.String("TeaSDK-2.0"),
-				"sdk_version":      tea.String("1.2.3"),
+				"sdk_version":      tea.String("1.2.5"),
 				"_prod_code":       tea.String("INTELLICAR"),
 				"_prod_channel":    tea.String("default"),
 			}
@@ -5650,10 +6446,11 @@ func (client *Client) DoRequest(version *string, action *string, protocol *strin
 	return _resp, _err
 }
 
-/**
- * Description: 推送星贷车信息
- * Summary: 推送星贷车信息
- */
+// Description:
+//
+// Description: 推送星贷车信息
+//
+// Summary: 推送星贷车信息
 func (client *Client) PushCarloan(request *PushCarloanRequest) (_result *PushCarloanResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -5666,10 +6463,11 @@ func (client *Client) PushCarloan(request *PushCarloanRequest) (_result *PushCar
 	return _result, _err
 }
 
-/**
- * Description: 推送星贷车信息
- * Summary: 推送星贷车信息
- */
+// Description:
+//
+// Description: 推送星贷车信息
+//
+// Summary: 推送星贷车信息
 func (client *Client) PushCarloanEx(request *PushCarloanRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *PushCarloanResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -5684,10 +6482,11 @@ func (client *Client) PushCarloanEx(request *PushCarloanRequest, headers map[str
 	return _result, _err
 }
 
-/**
- * Description: 车主信息提交
- * Summary:  车主信息提交
- */
+// Description:
+//
+// Description: 车主信息提交
+//
+// Summary:  车主信息提交
 func (client *Client) RegisterCarowner(request *RegisterCarownerRequest) (_result *RegisterCarownerResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -5700,10 +6499,11 @@ func (client *Client) RegisterCarowner(request *RegisterCarownerRequest) (_resul
 	return _result, _err
 }
 
-/**
- * Description: 车主信息提交
- * Summary:  车主信息提交
- */
+// Description:
+//
+// Description: 车主信息提交
+//
+// Summary:  车主信息提交
 func (client *Client) RegisterCarownerEx(request *RegisterCarownerRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *RegisterCarownerResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -5718,10 +6518,11 @@ func (client *Client) RegisterCarownerEx(request *RegisterCarownerRequest, heade
 	return _result, _err
 }
 
-/**
- * Description: 新车线索批量提交
- * Summary: 新车线索批量提交
- */
+// Description:
+//
+// Description: 新车线索批量提交
+//
+// Summary: 新车线索批量提交
 func (client *Client) BatchcreateNewcar(request *BatchcreateNewcarRequest) (_result *BatchcreateNewcarResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -5734,10 +6535,11 @@ func (client *Client) BatchcreateNewcar(request *BatchcreateNewcarRequest) (_res
 	return _result, _err
 }
 
-/**
- * Description: 新车线索批量提交
- * Summary: 新车线索批量提交
- */
+// Description:
+//
+// Description: 新车线索批量提交
+//
+// Summary: 新车线索批量提交
 func (client *Client) BatchcreateNewcarEx(request *BatchcreateNewcarRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *BatchcreateNewcarResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -5752,10 +6554,11 @@ func (client *Client) BatchcreateNewcarEx(request *BatchcreateNewcarRequest, hea
 	return _result, _err
 }
 
-/**
- * Description: 提交新车线索
- * Summary:  提交新车线索
- */
+// Description:
+//
+// Description: 提交新车线索
+//
+// Summary:  提交新车线索
 func (client *Client) SubmitNewcar(request *SubmitNewcarRequest) (_result *SubmitNewcarResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -5768,10 +6571,11 @@ func (client *Client) SubmitNewcar(request *SubmitNewcarRequest) (_result *Submi
 	return _result, _err
 }
 
-/**
- * Description: 提交新车线索
- * Summary:  提交新车线索
- */
+// Description:
+//
+// Description: 提交新车线索
+//
+// Summary:  提交新车线索
 func (client *Client) SubmitNewcarEx(request *SubmitNewcarRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *SubmitNewcarResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -5786,10 +6590,11 @@ func (client *Client) SubmitNewcarEx(request *SubmitNewcarRequest, headers map[s
 	return _result, _err
 }
 
-/**
- * Description: 常岳线索推送接口
- * Summary: 常岳线索推送
- */
+// Description:
+//
+// Description: 常岳线索推送接口
+//
+// Summary: 常岳线索推送
 func (client *Client) RegisterCarownerCy(request *RegisterCarownerCyRequest) (_result *RegisterCarownerCyResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -5802,10 +6607,11 @@ func (client *Client) RegisterCarownerCy(request *RegisterCarownerCyRequest) (_r
 	return _result, _err
 }
 
-/**
- * Description: 常岳线索推送接口
- * Summary: 常岳线索推送
- */
+// Description:
+//
+// Description: 常岳线索推送接口
+//
+// Summary: 常岳线索推送
 func (client *Client) RegisterCarownerCyEx(request *RegisterCarownerCyRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *RegisterCarownerCyResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -5820,10 +6626,11 @@ func (client *Client) RegisterCarownerCyEx(request *RegisterCarownerCyRequest, h
 	return _result, _err
 }
 
-/**
- * Description: 车辆价格查询
- * Summary: 车辆价格查询
- */
+// Description:
+//
+// Description: 车辆价格查询
+//
+// Summary: 车辆价格查询
 func (client *Client) QueryCarPrice(request *QueryCarPriceRequest) (_result *QueryCarPriceResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -5836,10 +6643,11 @@ func (client *Client) QueryCarPrice(request *QueryCarPriceRequest) (_result *Que
 	return _result, _err
 }
 
-/**
- * Description: 车辆价格查询
- * Summary: 车辆价格查询
- */
+// Description:
+//
+// Description: 车辆价格查询
+//
+// Summary: 车辆价格查询
 func (client *Client) QueryCarPriceEx(request *QueryCarPriceRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *QueryCarPriceResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -5854,10 +6662,11 @@ func (client *Client) QueryCarPriceEx(request *QueryCarPriceRequest, headers map
 	return _result, _err
 }
 
-/**
- * Description: 文件引入
- * Summary: 文件引入
- */
+// Description:
+//
+// Description: 文件引入
+//
+// Summary: 文件引入
 func (client *Client) ImportCarFile(request *ImportCarFileRequest) (_result *ImportCarFileResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -5870,10 +6679,11 @@ func (client *Client) ImportCarFile(request *ImportCarFileRequest) (_result *Imp
 	return _result, _err
 }
 
-/**
- * Description: 文件引入
- * Summary: 文件引入
- */
+// Description:
+//
+// Description: 文件引入
+//
+// Summary: 文件引入
 func (client *Client) ImportCarFileEx(request *ImportCarFileRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *ImportCarFileResponse, _err error) {
 	if !tea.BoolValue(util.IsUnset(request.FileObject)) {
 		uploadReq := &CreateAntcloudGatewayxFileUploadRequest{
@@ -5918,10 +6728,11 @@ func (client *Client) ImportCarFileEx(request *ImportCarFileRequest, headers map
 	return _result, _err
 }
 
-/**
- * Description: 汽车之家区域接口
- * Summary: 汽车之家区域接口
- */
+// Description:
+//
+// Description: 汽车之家区域接口
+//
+// Summary: 汽车之家区域接口
 func (client *Client) QueryUsedcar(request *QueryUsedcarRequest) (_result *QueryUsedcarResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -5934,10 +6745,11 @@ func (client *Client) QueryUsedcar(request *QueryUsedcarRequest) (_result *Query
 	return _result, _err
 }
 
-/**
- * Description: 汽车之家区域接口
- * Summary: 汽车之家区域接口
- */
+// Description:
+//
+// Description: 汽车之家区域接口
+//
+// Summary: 汽车之家区域接口
 func (client *Client) QueryUsedcarEx(request *QueryUsedcarRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *QueryUsedcarResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -5952,10 +6764,11 @@ func (client *Client) QueryUsedcarEx(request *QueryUsedcarRequest, headers map[s
 	return _result, _err
 }
 
-/**
- * Description: 逸安启回调接口
- * Summary: 逸安启回调接口
- */
+// Description:
+//
+// Description: 逸安启回调接口
+//
+// Summary: 逸安启回调接口
 func (client *Client) SubmitIonchi(request *SubmitIonchiRequest) (_result *SubmitIonchiResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -5968,10 +6781,11 @@ func (client *Client) SubmitIonchi(request *SubmitIonchiRequest) (_result *Submi
 	return _result, _err
 }
 
-/**
- * Description: 逸安启回调接口
- * Summary: 逸安启回调接口
- */
+// Description:
+//
+// Description: 逸安启回调接口
+//
+// Summary: 逸安启回调接口
 func (client *Client) SubmitIonchiEx(request *SubmitIonchiRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *SubmitIonchiResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -5986,10 +6800,11 @@ func (client *Client) SubmitIonchiEx(request *SubmitIonchiRequest, headers map[s
 	return _result, _err
 }
 
-/**
- * Description: 对接高德，查询潜客流向以及重叠的数据
- * Summary: 【高德】流向与重叠数据
- */
+// Description:
+//
+// Description: 对接高德，查询潜客流向以及重叠的数据
+//
+// Summary: 【高德】流向与重叠数据
 func (client *Client) QueryGdFlow(request *QueryGdFlowRequest) (_result *QueryGdFlowResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -6002,10 +6817,11 @@ func (client *Client) QueryGdFlow(request *QueryGdFlowRequest) (_result *QueryGd
 	return _result, _err
 }
 
-/**
- * Description: 对接高德，查询潜客流向以及重叠的数据
- * Summary: 【高德】流向与重叠数据
- */
+// Description:
+//
+// Description: 对接高德，查询潜客流向以及重叠的数据
+//
+// Summary: 【高德】流向与重叠数据
 func (client *Client) QueryGdFlowEx(request *QueryGdFlowRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *QueryGdFlowResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -6020,10 +6836,11 @@ func (client *Client) QueryGdFlowEx(request *QueryGdFlowRequest, headers map[str
 	return _result, _err
 }
 
-/**
- * Description: 电池衰退权益报告查询接口
- * Summary: 电池衰退权益报告查询接口
- */
+// Description:
+//
+// Description: 电池衰退权益报告查询接口
+//
+// Summary: 电池衰退权益报告查询接口
 func (client *Client) QueryBatteryReport(request *QueryBatteryReportRequest) (_result *QueryBatteryReportResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -6036,10 +6853,11 @@ func (client *Client) QueryBatteryReport(request *QueryBatteryReportRequest) (_r
 	return _result, _err
 }
 
-/**
- * Description: 电池衰退权益报告查询接口
- * Summary: 电池衰退权益报告查询接口
- */
+// Description:
+//
+// Description: 电池衰退权益报告查询接口
+//
+// Summary: 电池衰退权益报告查询接口
 func (client *Client) QueryBatteryReportEx(request *QueryBatteryReportRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *QueryBatteryReportResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -6054,10 +6872,11 @@ func (client *Client) QueryBatteryReportEx(request *QueryBatteryReportRequest, h
 	return _result, _err
 }
 
-/**
- * Description: 用来查询汽车之家车型和城市列表
- * Summary: 用来查询汽车之家车型和城市列表
- */
+// Description:
+//
+// Description: 用来查询汽车之家车型和城市列表
+//
+// Summary: 用来查询汽车之家车型和城市列表
 func (client *Client) QueryNewcarQczj(request *QueryNewcarQczjRequest) (_result *QueryNewcarQczjResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -6070,10 +6889,11 @@ func (client *Client) QueryNewcarQczj(request *QueryNewcarQczjRequest) (_result 
 	return _result, _err
 }
 
-/**
- * Description: 用来查询汽车之家车型和城市列表
- * Summary: 用来查询汽车之家车型和城市列表
- */
+// Description:
+//
+// Description: 用来查询汽车之家车型和城市列表
+//
+// Summary: 用来查询汽车之家车型和城市列表
 func (client *Client) QueryNewcarQczjEx(request *QueryNewcarQczjRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *QueryNewcarQczjResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -6088,10 +6908,11 @@ func (client *Client) QueryNewcarQczjEx(request *QueryNewcarQczjRequest, headers
 	return _result, _err
 }
 
-/**
- * Description: 【高德】查询店铺基本信息
- * Summary: 【高德】查询店铺基本信息
- */
+// Description:
+//
+// Description: 【高德】查询店铺基本信息
+//
+// Summary: 【高德】查询店铺基本信息
 func (client *Client) QueryGdStore(request *QueryGdStoreRequest) (_result *QueryGdStoreResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -6104,10 +6925,11 @@ func (client *Client) QueryGdStore(request *QueryGdStoreRequest) (_result *Query
 	return _result, _err
 }
 
-/**
- * Description: 【高德】查询店铺基本信息
- * Summary: 【高德】查询店铺基本信息
- */
+// Description:
+//
+// Description: 【高德】查询店铺基本信息
+//
+// Summary: 【高德】查询店铺基本信息
 func (client *Client) QueryGdStoreEx(request *QueryGdStoreRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *QueryGdStoreResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -6122,10 +6944,11 @@ func (client *Client) QueryGdStoreEx(request *QueryGdStoreRequest, headers map[s
 	return _result, _err
 }
 
-/**
- * Description: 【高德】潜客指数数据
- * Summary: 【高德】潜客指数数据
- */
+// Description:
+//
+// Description: 【高德】潜客指数数据
+//
+// Summary: 【高德】潜客指数数据
 func (client *Client) QueryGdPoential(request *QueryGdPoentialRequest) (_result *QueryGdPoentialResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -6138,10 +6961,11 @@ func (client *Client) QueryGdPoential(request *QueryGdPoentialRequest) (_result 
 	return _result, _err
 }
 
-/**
- * Description: 【高德】潜客指数数据
- * Summary: 【高德】潜客指数数据
- */
+// Description:
+//
+// Description: 【高德】潜客指数数据
+//
+// Summary: 【高德】潜客指数数据
 func (client *Client) QueryGdPoentialEx(request *QueryGdPoentialRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *QueryGdPoentialResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -6156,10 +6980,11 @@ func (client *Client) QueryGdPoentialEx(request *QueryGdPoentialRequest, headers
 	return _result, _err
 }
 
-/**
- * Description: 对接车道山前擦碰无忧接口
- * Summary: 对接车道山前擦碰无忧接口
- */
+// Description:
+//
+// Description: 对接车道山前擦碰无忧接口
+//
+// Summary: 对接车道山前擦碰无忧接口
 func (client *Client) RegisterCdsqScratches(request *RegisterCdsqScratchesRequest) (_result *RegisterCdsqScratchesResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -6172,10 +6997,11 @@ func (client *Client) RegisterCdsqScratches(request *RegisterCdsqScratchesReques
 	return _result, _err
 }
 
-/**
- * Description: 对接车道山前擦碰无忧接口
- * Summary: 对接车道山前擦碰无忧接口
- */
+// Description:
+//
+// Description: 对接车道山前擦碰无忧接口
+//
+// Summary: 对接车道山前擦碰无忧接口
 func (client *Client) RegisterCdsqScratchesEx(request *RegisterCdsqScratchesRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *RegisterCdsqScratchesResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -6190,10 +7016,11 @@ func (client *Client) RegisterCdsqScratchesEx(request *RegisterCdsqScratchesRequ
 	return _result, _err
 }
 
-/**
- * Description: 车到山前查询权益接口
- * Summary: 车到山前查询权益接口
- */
+// Description:
+//
+// Description: 车到山前查询权益接口
+//
+// Summary: 车到山前查询权益接口
 func (client *Client) QueryCdsqScratches(request *QueryCdsqScratchesRequest) (_result *QueryCdsqScratchesResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -6206,10 +7033,11 @@ func (client *Client) QueryCdsqScratches(request *QueryCdsqScratchesRequest) (_r
 	return _result, _err
 }
 
-/**
- * Description: 车到山前查询权益接口
- * Summary: 车到山前查询权益接口
- */
+// Description:
+//
+// Description: 车到山前查询权益接口
+//
+// Summary: 车到山前查询权益接口
 func (client *Client) QueryCdsqScratchesEx(request *QueryCdsqScratchesRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *QueryCdsqScratchesResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -6224,10 +7052,11 @@ func (client *Client) QueryCdsqScratchesEx(request *QueryCdsqScratchesRequest, h
 	return _result, _err
 }
 
-/**
- * Description: 车到山前权益退保接口
- * Summary: 车到山前权益退保接口
- */
+// Description:
+//
+// Description: 车到山前权益退保接口
+//
+// Summary: 车到山前权益退保接口
 func (client *Client) DeleteCdsqScratches(request *DeleteCdsqScratchesRequest) (_result *DeleteCdsqScratchesResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -6240,10 +7069,11 @@ func (client *Client) DeleteCdsqScratches(request *DeleteCdsqScratchesRequest) (
 	return _result, _err
 }
 
-/**
- * Description: 车到山前权益退保接口
- * Summary: 车到山前权益退保接口
- */
+// Description:
+//
+// Description: 车到山前权益退保接口
+//
+// Summary: 车到山前权益退保接口
 func (client *Client) DeleteCdsqScratchesEx(request *DeleteCdsqScratchesRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *DeleteCdsqScratchesResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -6258,10 +7088,11 @@ func (client *Client) DeleteCdsqScratchesEx(request *DeleteCdsqScratchesRequest,
 	return _result, _err
 }
 
-/**
- * Description: 车到山前权益退保回调接口
- * Summary: 车到山前权益退保回调接口
- */
+// Description:
+//
+// Description: 车到山前权益退保回调接口
+//
+// Summary: 车到山前权益退保回调接口
 func (client *Client) CallbackCdsqScratches(request *CallbackCdsqScratchesRequest) (_result *CallbackCdsqScratchesResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -6274,10 +7105,11 @@ func (client *Client) CallbackCdsqScratches(request *CallbackCdsqScratchesReques
 	return _result, _err
 }
 
-/**
- * Description: 车到山前权益退保回调接口
- * Summary: 车到山前权益退保回调接口
- */
+// Description:
+//
+// Description: 车到山前权益退保回调接口
+//
+// Summary: 车到山前权益退保回调接口
 func (client *Client) CallbackCdsqScratchesEx(request *CallbackCdsqScratchesRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *CallbackCdsqScratchesResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -6292,10 +7124,11 @@ func (client *Client) CallbackCdsqScratchesEx(request *CallbackCdsqScratchesRequ
 	return _result, _err
 }
 
-/**
- * Description: 车到山前权益状态查询
- * Summary: 车到山前权益状态查询
- */
+// Description:
+//
+// Description: 车到山前权益状态查询
+//
+// Summary: 车到山前权益状态查询
 func (client *Client) SaveCdsqScratches(request *SaveCdsqScratchesRequest) (_result *SaveCdsqScratchesResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -6308,10 +7141,11 @@ func (client *Client) SaveCdsqScratches(request *SaveCdsqScratchesRequest) (_res
 	return _result, _err
 }
 
-/**
- * Description: 车到山前权益状态查询
- * Summary: 车到山前权益状态查询
- */
+// Description:
+//
+// Description: 车到山前权益状态查询
+//
+// Summary: 车到山前权益状态查询
 func (client *Client) SaveCdsqScratchesEx(request *SaveCdsqScratchesRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *SaveCdsqScratchesResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -6326,10 +7160,11 @@ func (client *Client) SaveCdsqScratchesEx(request *SaveCdsqScratchesRequest, hea
 	return _result, _err
 }
 
-/**
- * Description: 常岳车贷线索预判接口
- * Summary: 常岳车贷线索预判接口
- */
+// Description:
+//
+// Description: 常岳车贷线索预判接口
+//
+// Summary: 常岳车贷线索预判接口
 func (client *Client) QueryCarVin(request *QueryCarVinRequest) (_result *QueryCarVinResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -6342,10 +7177,11 @@ func (client *Client) QueryCarVin(request *QueryCarVinRequest) (_result *QueryCa
 	return _result, _err
 }
 
-/**
- * Description: 常岳车贷线索预判接口
- * Summary: 常岳车贷线索预判接口
- */
+// Description:
+//
+// Description: 常岳车贷线索预判接口
+//
+// Summary: 常岳车贷线索预判接口
 func (client *Client) QueryCarVinEx(request *QueryCarVinRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *QueryCarVinResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -6360,10 +7196,11 @@ func (client *Client) QueryCarVinEx(request *QueryCarVinRequest, headers map[str
 	return _result, _err
 }
 
-/**
- * Description: 长安画像标签授权接口
- * Summary: 长安画像标签授权接口
- */
+// Description:
+//
+// Description: 长安画像标签授权接口
+//
+// Summary: 长安画像标签授权接口
 func (client *Client) RegisterTagChangan(request *RegisterTagChanganRequest) (_result *RegisterTagChanganResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -6376,10 +7213,11 @@ func (client *Client) RegisterTagChangan(request *RegisterTagChanganRequest) (_r
 	return _result, _err
 }
 
-/**
- * Description: 长安画像标签授权接口
- * Summary: 长安画像标签授权接口
- */
+// Description:
+//
+// Description: 长安画像标签授权接口
+//
+// Summary: 长安画像标签授权接口
 func (client *Client) RegisterTagChanganEx(request *RegisterTagChanganRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *RegisterTagChanganResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -6394,10 +7232,11 @@ func (client *Client) RegisterTagChanganEx(request *RegisterTagChanganRequest, h
 	return _result, _err
 }
 
-/**
- * Description: 长安画像标签用户id标签查询1
- * Summary: 长安画像标签用户id标签查询1
- */
+// Description:
+//
+// Description: 长安画像标签用户id标签查询1
+//
+// Summary: 长安画像标签用户id标签查询1
 func (client *Client) QueryTagChangan(request *QueryTagChanganRequest) (_result *QueryTagChanganResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -6410,10 +7249,11 @@ func (client *Client) QueryTagChangan(request *QueryTagChanganRequest) (_result 
 	return _result, _err
 }
 
-/**
- * Description: 长安画像标签用户id标签查询1
- * Summary: 长安画像标签用户id标签查询1
- */
+// Description:
+//
+// Description: 长安画像标签用户id标签查询1
+//
+// Summary: 长安画像标签用户id标签查询1
 func (client *Client) QueryTagChanganEx(request *QueryTagChanganRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *QueryTagChanganResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -6428,10 +7268,11 @@ func (client *Client) QueryTagChanganEx(request *QueryTagChanganRequest, headers
 	return _result, _err
 }
 
-/**
- * Description: 汽车之家区域接口
- * Summary: 汽车之家区域接口
- */
+// Description:
+//
+// Description: 汽车之家区域接口
+//
+// Summary: 汽车之家区域接口
 func (client *Client) QueryUsedcarArea(request *QueryUsedcarAreaRequest) (_result *QueryUsedcarAreaResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -6444,10 +7285,11 @@ func (client *Client) QueryUsedcarArea(request *QueryUsedcarAreaRequest) (_resul
 	return _result, _err
 }
 
-/**
- * Description: 汽车之家区域接口
- * Summary: 汽车之家区域接口
- */
+// Description:
+//
+// Description: 汽车之家区域接口
+//
+// Summary: 汽车之家区域接口
 func (client *Client) QueryUsedcarAreaEx(request *QueryUsedcarAreaRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *QueryUsedcarAreaResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -6462,10 +7304,11 @@ func (client *Client) QueryUsedcarAreaEx(request *QueryUsedcarAreaRequest, heade
 	return _result, _err
 }
 
-/**
- * Description: 获取汽车之家品牌信息
- * Summary: 获取汽车之家品牌信息
- */
+// Description:
+//
+// Description: 获取汽车之家品牌信息
+//
+// Summary: 获取汽车之家品牌信息
 func (client *Client) QueryUsedcarBrands(request *QueryUsedcarBrandsRequest) (_result *QueryUsedcarBrandsResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -6478,10 +7321,11 @@ func (client *Client) QueryUsedcarBrands(request *QueryUsedcarBrandsRequest) (_r
 	return _result, _err
 }
 
-/**
- * Description: 获取汽车之家品牌信息
- * Summary: 获取汽车之家品牌信息
- */
+// Description:
+//
+// Description: 获取汽车之家品牌信息
+//
+// Summary: 获取汽车之家品牌信息
 func (client *Client) QueryUsedcarBrandsEx(request *QueryUsedcarBrandsRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *QueryUsedcarBrandsResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -6496,10 +7340,11 @@ func (client *Client) QueryUsedcarBrandsEx(request *QueryUsedcarBrandsRequest, h
 	return _result, _err
 }
 
-/**
- * Description: 汽车之家车系接口
- * Summary: 汽车之家车系接口
- */
+// Description:
+//
+// Description: 汽车之家车系接口
+//
+// Summary: 汽车之家车系接口
 func (client *Client) QueryUsedcarSeries(request *QueryUsedcarSeriesRequest) (_result *QueryUsedcarSeriesResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -6512,10 +7357,11 @@ func (client *Client) QueryUsedcarSeries(request *QueryUsedcarSeriesRequest) (_r
 	return _result, _err
 }
 
-/**
- * Description: 汽车之家车系接口
- * Summary: 汽车之家车系接口
- */
+// Description:
+//
+// Description: 汽车之家车系接口
+//
+// Summary: 汽车之家车系接口
 func (client *Client) QueryUsedcarSeriesEx(request *QueryUsedcarSeriesRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *QueryUsedcarSeriesResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -6530,10 +7376,11 @@ func (client *Client) QueryUsedcarSeriesEx(request *QueryUsedcarSeriesRequest, h
 	return _result, _err
 }
 
-/**
- * Description: 汽车之家车型接口
- * Summary: 汽车之家车型接口
- */
+// Description:
+//
+// Description: 汽车之家车型接口
+//
+// Summary: 汽车之家车型接口
 func (client *Client) QueryUsedcarProducts(request *QueryUsedcarProductsRequest) (_result *QueryUsedcarProductsResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -6546,10 +7393,11 @@ func (client *Client) QueryUsedcarProducts(request *QueryUsedcarProductsRequest)
 	return _result, _err
 }
 
-/**
- * Description: 汽车之家车型接口
- * Summary: 汽车之家车型接口
- */
+// Description:
+//
+// Description: 汽车之家车型接口
+//
+// Summary: 汽车之家车型接口
 func (client *Client) QueryUsedcarProductsEx(request *QueryUsedcarProductsRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *QueryUsedcarProductsResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -6564,10 +7412,11 @@ func (client *Client) QueryUsedcarProductsEx(request *QueryUsedcarProductsReques
 	return _result, _err
 }
 
-/**
- * Description: 获取二手车线索状态
- * Summary: 获取二手车线索状态
- */
+// Description:
+//
+// Description: 获取二手车线索状态
+//
+// Summary: 获取二手车线索状态
 func (client *Client) SyncUsedcar(request *SyncUsedcarRequest) (_result *SyncUsedcarResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -6580,10 +7429,11 @@ func (client *Client) SyncUsedcar(request *SyncUsedcarRequest) (_result *SyncUse
 	return _result, _err
 }
 
-/**
- * Description: 获取二手车线索状态
- * Summary: 获取二手车线索状态
- */
+// Description:
+//
+// Description: 获取二手车线索状态
+//
+// Summary: 获取二手车线索状态
 func (client *Client) SyncUsedcarEx(request *SyncUsedcarRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *SyncUsedcarResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -6598,10 +7448,11 @@ func (client *Client) SyncUsedcarEx(request *SyncUsedcarRequest, headers map[str
 	return _result, _err
 }
 
-/**
- * Description: 轮胎投保接口
- * Summary: 轮胎投保接口
- */
+// Description:
+//
+// Description: 轮胎投保接口
+//
+// Summary: 轮胎投保接口
 func (client *Client) RegisterCdsqTireinsurance(request *RegisterCdsqTireinsuranceRequest) (_result *RegisterCdsqTireinsuranceResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -6614,10 +7465,11 @@ func (client *Client) RegisterCdsqTireinsurance(request *RegisterCdsqTireinsuran
 	return _result, _err
 }
 
-/**
- * Description: 轮胎投保接口
- * Summary: 轮胎投保接口
- */
+// Description:
+//
+// Description: 轮胎投保接口
+//
+// Summary: 轮胎投保接口
 func (client *Client) RegisterCdsqTireinsuranceEx(request *RegisterCdsqTireinsuranceRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *RegisterCdsqTireinsuranceResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -6632,10 +7484,11 @@ func (client *Client) RegisterCdsqTireinsuranceEx(request *RegisterCdsqTireinsur
 	return _result, _err
 }
 
-/**
- * Description: 轮胎回调接口
- * Summary: 轮胎回调接口
- */
+// Description:
+//
+// Description: 轮胎回调接口
+//
+// Summary: 轮胎回调接口
 func (client *Client) CallbackCdsqTireinsurance(request *CallbackCdsqTireinsuranceRequest) (_result *CallbackCdsqTireinsuranceResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -6648,10 +7501,11 @@ func (client *Client) CallbackCdsqTireinsurance(request *CallbackCdsqTireinsuran
 	return _result, _err
 }
 
-/**
- * Description: 轮胎回调接口
- * Summary: 轮胎回调接口
- */
+// Description:
+//
+// Description: 轮胎回调接口
+//
+// Summary: 轮胎回调接口
 func (client *Client) CallbackCdsqTireinsuranceEx(request *CallbackCdsqTireinsuranceRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *CallbackCdsqTireinsuranceResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -6666,10 +7520,11 @@ func (client *Client) CallbackCdsqTireinsuranceEx(request *CallbackCdsqTireinsur
 	return _result, _err
 }
 
-/**
- * Description: 轮胎权益接口查询状态
- * Summary: 轮胎权益接口查询状态
- */
+// Description:
+//
+// Description: 轮胎权益接口查询状态
+//
+// Summary: 轮胎权益接口查询状态
 func (client *Client) QueryCdsqTireinsurance(request *QueryCdsqTireinsuranceRequest) (_result *QueryCdsqTireinsuranceResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -6682,10 +7537,11 @@ func (client *Client) QueryCdsqTireinsurance(request *QueryCdsqTireinsuranceRequ
 	return _result, _err
 }
 
-/**
- * Description: 轮胎权益接口查询状态
- * Summary: 轮胎权益接口查询状态
- */
+// Description:
+//
+// Description: 轮胎权益接口查询状态
+//
+// Summary: 轮胎权益接口查询状态
 func (client *Client) QueryCdsqTireinsuranceEx(request *QueryCdsqTireinsuranceRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *QueryCdsqTireinsuranceResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -6700,10 +7556,11 @@ func (client *Client) QueryCdsqTireinsuranceEx(request *QueryCdsqTireinsuranceRe
 	return _result, _err
 }
 
-/**
- * Description: 增加统一调用泛化接口
- * Summary: 增加统一调用泛化接口
- */
+// Description:
+//
+// Description: 增加统一调用泛化接口
+//
+// Summary: 增加统一调用泛化接口
 func (client *Client) ExecUnifiedentrance(request *ExecUnifiedentranceRequest) (_result *ExecUnifiedentranceResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -6716,10 +7573,11 @@ func (client *Client) ExecUnifiedentrance(request *ExecUnifiedentranceRequest) (
 	return _result, _err
 }
 
-/**
- * Description: 增加统一调用泛化接口
- * Summary: 增加统一调用泛化接口
- */
+// Description:
+//
+// Description: 增加统一调用泛化接口
+//
+// Summary: 增加统一调用泛化接口
 func (client *Client) ExecUnifiedentranceEx(request *ExecUnifiedentranceRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *ExecUnifiedentranceResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -6734,10 +7592,83 @@ func (client *Client) ExecUnifiedentranceEx(request *ExecUnifiedentranceRequest,
 	return _result, _err
 }
 
-/**
- * Description: 创建HTTP PUT提交的文件上传
- * Summary: 文件上传创建
- */
+// Description:
+//
+// Description: 测试日志改造成果
+//
+// Summary: 测试日志改造成果
+func (client *Client) QueryLogsNew(request *QueryLogsNewRequest) (_result *QueryLogsNewResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := make(map[string]*string)
+	_result = &QueryLogsNewResponse{}
+	_body, _err := client.QueryLogsNewEx(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Description:
+//
+// Description: 测试日志改造成果
+//
+// Summary: 测试日志改造成果
+func (client *Client) QueryLogsNewEx(request *QueryLogsNewRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *QueryLogsNewResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = &QueryLogsNewResponse{}
+	_body, _err := client.DoRequest(tea.String("1.0"), tea.String("antdigital.intellicar.logs.new.query"), tea.String("HTTPS"), tea.String("POST"), tea.String("/gateway.do"), tea.ToMap(request), headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Description:
+//
+// Description: 日志改造测试
+//
+// Summary: 日志改造测试
+func (client *Client) ExecLogsNew(request *ExecLogsNewRequest) (_result *ExecLogsNewResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := make(map[string]*string)
+	_result = &ExecLogsNewResponse{}
+	_body, _err := client.ExecLogsNewEx(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Description:
+//
+// Description: 日志改造测试
+//
+// Summary: 日志改造测试
+func (client *Client) ExecLogsNewEx(request *ExecLogsNewRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *ExecLogsNewResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = &ExecLogsNewResponse{}
+	_body, _err := client.DoRequest(tea.String("1.0"), tea.String("antdigital.intellicar.logs.new.exec"), tea.String("HTTPS"), tea.String("POST"), tea.String("/gateway.do"), tea.ToMap(request), headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Description:
+//
+// Description: 创建HTTP PUT提交的文件上传
+//
+// Summary: 文件上传创建
 func (client *Client) CreateAntcloudGatewayxFileUpload(request *CreateAntcloudGatewayxFileUploadRequest) (_result *CreateAntcloudGatewayxFileUploadResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -6750,10 +7681,11 @@ func (client *Client) CreateAntcloudGatewayxFileUpload(request *CreateAntcloudGa
 	return _result, _err
 }
 
-/**
- * Description: 创建HTTP PUT提交的文件上传
- * Summary: 文件上传创建
- */
+// Description:
+//
+// Description: 创建HTTP PUT提交的文件上传
+//
+// Summary: 文件上传创建
 func (client *Client) CreateAntcloudGatewayxFileUploadEx(request *CreateAntcloudGatewayxFileUploadRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *CreateAntcloudGatewayxFileUploadResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
